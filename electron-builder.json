@@ -1,0 +1,15 @@
+{
+    "appId": "com.example.gamedrawer",
+    "files": ["dist/ui", "dist/core"],
+    "icon": "./icon.png",
+    "mac": {
+        "target": "dmg"
+    },
+    "win": {
+        "target": ["portable", "msi"]
+    },
+    "linux": {
+        "target": "AppImage",
+        "category": "Utility"
+    }
+}
