@@ -1,18 +1,28 @@
 /* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
 {
   "compilerOptions": {
-    "strict": true,
     "target": "esnext",
     "module": "nodenext",
     "outDir": "../../dist/core",
-
+    
+    "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "alwaysStrict": true,
+    "composite": true,
     "exactOptionalPropertyTypes": true,
+    "generateCpuProfile": "profile.cpuprofile",
+    "noEmitOnError": true,
     "noImplicitAny": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictPropertyInitialization": false
   },
 }
