@@ -1,17 +1,21 @@
 {
   "name": "game-drawer",
+  "author": "HenriBDev",
+  "description": "An app developed to run your own fully customizable collection of games",
   "version": "0.0.0",
   "main": "dist/core/main.js",
   "scripts": {
 
+    "dev": "npm run dev:ui & npm run dev:core",
+    "dist": "npm run transpile:core && npm run build:ui && electron-builder --win --x64",
+
     "build:ui": "ng build",
-    "start:ui": "ng serve",
+    "dev:ui": "ng serve",
     "test:ui": "ng test",
     "watch:ui": "ng build --watch --configuration development",
 
-    "start:core": "electron .",
-    "transpile:core": "tsc -p src/core/tsconfig.json",
-    "dist:core": "npm run transpile:core && npm run build:ui && electron-builder --win --x64"
+    "dev:core": "npm run transpile:core && electron .",
+    "transpile:core": "tsc -p src/core/tsconfig.json"
   },
   "private": true,
   "dependencies": {

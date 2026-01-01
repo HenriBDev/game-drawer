@@ -8,7 +8,6 @@
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "alwaysStrict": true,
-    "composite": true,
     "exactOptionalPropertyTypes": true,
     "generateCpuProfile": "profile.cpuprofile",
     "noEmitOnError": true,

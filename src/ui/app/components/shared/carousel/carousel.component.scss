@@ -1,0 +1,16 @@
+:host{
+    width: 100%;
+    height: fit-content;
+    background-color: red;
+    justify-content: space-between;
+    display: flex;
+    scrollbar-width: none;
+    overflow-x: auto;
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 400px,
+        black calc(100% - 30px),
+        transparent
+    );
+}

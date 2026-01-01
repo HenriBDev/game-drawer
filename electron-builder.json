@@ -1,7 +1,7 @@
 {
     "appId": "com.example.gamedrawer",
     "files": ["dist/ui", "dist/core"],
-    "icon": "./icon.png",
+    "icon": "./public/icon.png",
     "mac": {
         "target": "dmg"
     },
