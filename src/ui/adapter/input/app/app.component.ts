@@ -13,6 +13,6 @@ export class AppComponent implements OnInit{
   title = 'game-drawer';
 
   ngOnInit(): void {
-    console.log("hey");
+    
   }
 }
