@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { CarouselComponent } from '../../shared/carousel/carousel.component';
-import { FloatingActionButtonComponent } from '../../shared/floating-action-button/floating-action-button.component';
+
+import { CarouselComponent } from '@ui/adapter/input/app/components/shared/carousel/carousel.component';
+import { FloatingActionButtonComponent } from '@ui/adapter/input/app/components/shared/floating-action-button/floating-action-button.component';
 
 @Component({
   selector: '[app-navbar]',

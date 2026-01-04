@@ -3,8 +3,12 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "nodenext",
-    "outDir": "../../dist/core",
-    
+    "outDir": "../../dist",
+    "baseUrl": "./",
+    "paths": {
+      "@shared/*": ["../shared/*"]
+    },
+
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "alwaysStrict": true,
@@ -24,4 +28,12 @@
     "strict": true,
     "strictPropertyInitialization": false
   },
+  "files": [
+    "main.ts"
+  ],
+  "include": [
+    "./**/*.d.ts",
+    "./**/*.ts",
+    "preload.cts"  
+  ]
 }

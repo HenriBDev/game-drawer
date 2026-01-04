@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavbarComponent } from "../navbar/navbar.component";
+
+import { NavbarComponent } from "@ui/adapter/input/app/components/core/navbar/navbar.component";
 
 @Component({
   selector: '[app-header]',
