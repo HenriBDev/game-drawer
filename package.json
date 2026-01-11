@@ -4,6 +4,10 @@
   "description": "An app developed to run your own fully customizable collection of games",
   "version": "0.0.0",
   "main": "dist/core/main.js",
+  "imports": {
+    "#core/*": "./dist/core/*",
+    "#shared/*": "./dist/shared/*"
+  },
   "scripts": {
     "dev": "npm run dev:ui & npm run dev:core",
     "dist": "npm run transpile:core && npm run build:ui && electron-builder --win --x64",
@@ -12,7 +16,8 @@
     "test:ui": "ng test",
     "watch:ui": "ng build --watch --configuration development",
     "dev:core": "npm run transpile:core && electron .",
-    "transpile:core": "tsc -p src/core/tsconfig.json"
+    "transpile:core": "tsc -p src/core/tsconfig.json",
+    "transpile:ui": "tsc -p src/ui/tsconfig.app.json"
   },
   "private": true,
   "dependencies": {

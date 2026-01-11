@@ -13,10 +13,10 @@
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "baseUrl": "./",
+    "baseUrl": "../",
     "paths": {
-      "@ui/*": ["./*"],
-      "@shared/*": ["../shared/*"]
+      "@ui/*": ["./ui/*"],
+      "@shared/*": ["./shared/*"]
     },
 
     "esModuleInterop": true,

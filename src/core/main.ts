@@ -1,20 +1,12 @@
-import { app, BrowserWindow } from "electron";
-import path from 'node:path';
+import { ElectronConfig } from "#core/config/ElectronConfig.js";
 
-let mainWindow;
+export class Main {
 
-app.on("ready", () => {
-    console.log("App is ready, env: " + process.env['NODE_ENV']);
-    mainWindow = new BrowserWindow({
-        fullscreen: true,
-        webPreferences: {
-            preload: path.join(app.getAppPath(), 'dist', 'core', 'preload.cjs')
-        }
-    });
-    if(process.env['NODE_ENV'] === 'development'){
-        mainWindow.loadURL('http://localhost:4200');
+    public static run(): void {
+
+        new ElectronConfig().build();
+        
     }
-    else{
-        mainWindow.loadFile(path.join(app.getAppPath(), 'dist', 'ui', 'browser', 'index.html'));
-    }
-});
+}
+
+Main.run();

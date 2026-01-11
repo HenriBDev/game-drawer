@@ -5,8 +5,10 @@
     "module": "nodenext",
     "outDir": "../../dist",
     "baseUrl": "./",
+    "rootDir": "../",
     "paths": {
-      "@shared/*": ["../shared/*"]
+      "#core/*": ["./*"],
+      "#shared/*": ["../shared/*"]
     },
 
     "allowSyntheticDefaultImports": true,
@@ -33,7 +35,6 @@
   ],
   "include": [
     "./**/*.d.ts",
-    "./**/*.ts",
-    "preload.cts"  
+    "./**/*.cts"
   ]
 }

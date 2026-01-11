@@ -1,5 +1,5 @@
 import { contextBridge } from 'electron';
-import { ElectronApi } from '@shared/infra/ElectronApi';
+import { ElectronApi } from '#shared/infra/ElectronApi.js';
 
 const electronApi: ElectronApi = {
 
