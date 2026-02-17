@@ -7,14 +7,14 @@
     "baseUrl": "./",
     "rootDir": "../",
     "paths": {
-      "#core/*": ["./*"],
-      "#shared/*": ["../shared/*"]
+      "#core/*": ["./*"]
     },
 
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "alwaysStrict": true,
     "exactOptionalPropertyTypes": true,
+    "experimentalDecorators": true,
     "generateCpuProfile": "profile.cpuprofile",
     "noEmitOnError": true,
     "noImplicitAny": true,
@@ -36,5 +36,5 @@
   "include": [
     "./**/*.d.ts",
     "./**/*.cts"
-  ]
+, "adapter/input/event/enum/EventNameEnum.ts", "preload.cts", "application/preload/interface/IPCEventsContracts.mts", "application/preload/interface/IPCEventsContracts.ts", "application/preload/service/IPCRendererService.ts"  ]
 }

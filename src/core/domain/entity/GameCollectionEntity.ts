@@ -1,4 +1,4 @@
 export class GameCollectionEntity{
 
-    name: string;
+    name: string = '';
 }

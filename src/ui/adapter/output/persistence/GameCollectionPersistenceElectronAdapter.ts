@@ -1,11 +1,10 @@
 import { GameCollectionPersistencePort } from "@ui/adapter/output/persistence/GameCollectionPersistencePort";
-import { GameCollectionEntity } from "@shared/domain/entity/GameCollectionEntity";
+import { GameCollectionDto } from "@ui/domain/dto/GameCollectionDto";
 
 export class GameCollectionPersistenceElectronAdapter implements GameCollectionPersistencePort {
 
-    getAllGameCollections(): Array<GameCollectionEntity> {
+    async getAllGameCollections(): Promise<Array<GameCollectionDto>> {
 
-        let gameCollection = ElectronApi.getGameCollections();
-        return gameCollection;
+        return ElectronApi.getGameCollections();
     }
 }

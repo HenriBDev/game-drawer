@@ -1,6 +1,6 @@
 
 import { Inject, Injectable } from "@angular/core";
-import { GameCollectionEntity } from "@shared/domain/entity/GameCollectionEntity";
+import { GameCollectionDto } from "@ui/domain/dto/GameCollectionDto";
 import { GAME_COLLECTION_PERSISTENCE_PORT_TOKEN, GameCollectionPersistencePort } from "@ui/adapter/output/persistence/GameCollectionPersistencePort";
 
 @Injectable({providedIn: 'root'})
@@ -15,8 +15,8 @@ export class GameCollectionUseCase{
         this.gameCollectionPersistenceAdapter = gameCollectionPersistenceAdapter;
     }
 
-    public getAllGameCollections(): Array<GameCollectionEntity> {
+    public async getAllGameCollections(): Promise<Array<GameCollectionDto>> {
 
-        return this.gameCollectionPersistenceAdapter.getAllGameCollections();
+        return await this.gameCollectionPersistenceAdapter.getAllGameCollections();
     }
 }

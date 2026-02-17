@@ -1,10 +1,12 @@
 import { ElectronConfig } from "#core/config/ElectronConfig.js";
+import { IocConfig } from "#core/config/IocConfig.js";
 
 export class Main {
 
-    public static run(): void {
+    static run(): void {
 
-        new ElectronConfig().build();
+        const iocConfig = new IocConfig();
+        new ElectronConfig().build(iocConfig.getControllers());
         
     }
 }

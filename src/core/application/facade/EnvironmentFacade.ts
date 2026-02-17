@@ -1,6 +1,6 @@
 import { EnvironmentEnum } from "#core/application/enum/EnvironmentEnum.js";
 
-export class EnvironmentConfig {
+export class EnvironmentFacade {
 
     public static getEnvironment(): EnvironmentEnum {
         const env = process.env['NODE_ENV'] || EnvironmentEnum.UNDEFINED;

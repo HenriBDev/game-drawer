@@ -15,8 +15,7 @@
     "importHelpers": true,
     "baseUrl": "../",
     "paths": {
-      "@ui/*": ["./ui/*"],
-      "@shared/*": ["./shared/*"]
+      "@ui/*": ["./ui/*"]
     },
 
     "esModuleInterop": true,

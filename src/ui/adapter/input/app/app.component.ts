@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '@ui/adapter/input/app/components/core/header/header.component';
 import { MainComponent } from "@ui/adapter/input/app/components/core/main/main.component";
 import { GameCollectionUseCase } from '@ui/domain/usecase/GameCollectionUseCase';
-import { GameCollectionEntity } from '@shared/domain/entity/GameCollectionEntity';
+import { GameCollectionDto } from '@ui/domain/dto/GameCollectionDto';
 
 @Component({
 	selector: '[app-root]',
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
 	title = 'game-drawer';
 
 	private readonly gameCollectionUseCase: GameCollectionUseCase;
-	private gameCollections: Array<GameCollectionEntity>;
+	private gameCollections: Array<GameCollectionDto>;
 
 	constructor(gameCollectionUseCase: GameCollectionUseCase) {
 		this.gameCollectionUseCase = gameCollectionUseCase;
@@ -25,7 +25,9 @@ export class AppComponent implements OnInit{
 
 	ngOnInit(): void {
 
-		this.gameCollections = this.gameCollectionUseCase.getAllGameCollections();
-		console.log(this.gameCollections);
+		this.gameCollectionUseCase.getAllGameCollections().then((gameCollections) => {
+			this.gameCollections = gameCollections;
+			console.log(this.gameCollections);
+		});
 	}
 }

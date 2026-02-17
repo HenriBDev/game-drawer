@@ -5,8 +5,7 @@
   "version": "0.0.0",
   "main": "dist/core/main.js",
   "imports": {
-    "#core/*": "./dist/core/*",
-    "#shared/*": "./dist/shared/*"
+    "#core/*": "./dist/core/*"
   },
   "scripts": {
     "dev": "npm run dev:ui & npm run dev:core",
