@@ -6,8 +6,9 @@ class ElectronPreloadConfig {
         
         const electronApi = {
 
-            // Shared event names with main process (adapter.input.event.enum.EventNameEnum)
-            // Shared event args and return types with main process controllers (adapter.input.controller)
+            // Shared event names with main process (core.adapter.input.event.enum.EventNameEnum)
+            // Shared event args and return types with main process controllers (core.adapter.input.controller)
+            // Shared method names with renderer process (ui.infra.ElectronApi)
             getGameCollections: () => ipcRenderer.invoke("game-collection-get-all")
 
         };

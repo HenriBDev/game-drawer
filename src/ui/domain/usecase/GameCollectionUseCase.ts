@@ -1,7 +1,7 @@
 
 import { Inject, Injectable } from "@angular/core";
-import { GameCollectionDto } from "@ui/domain/dto/GameCollectionDto";
 import { GAME_COLLECTION_PERSISTENCE_PORT_TOKEN, GameCollectionPersistencePort } from "@ui/adapter/output/persistence/GameCollectionPersistencePort";
+import { GameCollectionModel } from "../model/GameCollectionModel";
 
 @Injectable({providedIn: 'root'})
 export class GameCollectionUseCase{
@@ -15,8 +15,10 @@ export class GameCollectionUseCase{
         this.gameCollectionPersistenceAdapter = gameCollectionPersistenceAdapter;
     }
 
-    public async getAllGameCollections(): Promise<Array<GameCollectionDto>> {
+    public async getAllGameCollections(): Promise<Array<GameCollectionModel>> {
 
-        return await this.gameCollectionPersistenceAdapter.getAllGameCollections();
+        const gameCollections = await this.gameCollectionPersistenceAdapter.getAllGameCollections();
+        const mappedGameCollections = gameCollections.map((gameCollection) => { return gameCollection.toModel(); });
+        return mappedGameCollections;
     }
 }
