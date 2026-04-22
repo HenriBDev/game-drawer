@@ -1,15 +1,3 @@
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
-<button app-carousel-button></button>
+@for (item of items(); track $index) {
+    <button app-carousel-button [item]="item"></button>
+}

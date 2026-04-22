@@ -1,6 +1,6 @@
-import { GameCollectionDto } from "@ui/domain/dto/GameCollectionDto.js";
+import { GameCollectionModel } from "@ui/domain/model/GameCollectionModel";
 
 export interface ElectronApi{
 
-    getGameCollections(): Promise<Array<GameCollectionDto>>;
+    getGameCollections(): Promise<Array<GameCollectionModel>>;
 }

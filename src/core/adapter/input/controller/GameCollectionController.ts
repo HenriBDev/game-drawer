@@ -3,7 +3,7 @@ import { Controller } from "#core/adapter/input/controller/Controller.js";
 import { EventNameEnum } from "#core/adapter/input/event/enum/EventNameEnum.js";
 import { EventListener } from "#core/adapter/input/event/decorator/EventListener.js";
 
-import { GameCollectionDto } from "#core/domain/dto/GameCollectionDto.js";
+import { GameCollectionResponseDto } from "#core/domain/dto/GameCollectionResponseDto.js";
 import { GameCollectionUseCase } from "#core/domain/usecase/GameCollectionUseCase.js";
 
 export class GameCollectionController implements Controller {
@@ -15,8 +15,8 @@ export class GameCollectionController implements Controller {
     }
 
     @EventListener(EventNameEnum.GAME_COLLECTION_GET_ALL)
-    getGameCollections(): Array<GameCollectionDto> { 
+    getGameCollections(): Array<GameCollectionResponseDto> { 
         
-        return [];
+        return this.gameCollectionUseCase.getAllGameCollections();
     }
 }

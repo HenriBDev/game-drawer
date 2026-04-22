@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 
 @Component({
   selector: '[app-carousel-button]',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './carousel-button.component.scss'
 })
 export class CarouselButtonComponent {
+
+  item: InputSignal<string> = input.required();
 
 }

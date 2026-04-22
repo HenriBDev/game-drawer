@@ -1,30 +1,29 @@
-import { BehaviorSubject, Observable } from 'rxjs';
-
 import { GameCollectionModel } from "@ui/domain/model/GameCollectionModel";
-import { GameCollectionUseCase } from "@ui/domain/usecase/GameCollectionUseCase";
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, signal, WritableSignal } from '@angular/core';
+import { GAME_COLLECTION_PERSISTENCE_PORT_TOKEN, GameCollectionPersistencePort } from "@ui/adapter/output/persistence/GameCollectionPersistencePort";
 
 @Injectable({providedIn: 'root'})
 export class GameCollectionsStore {
 
-    private readonly gameCollectionsUseCase: GameCollectionUseCase;
-    private readonly gameCollectionsSubject: BehaviorSubject<Array<GameCollectionModel>>;
-    private readonly gameCollections: Observable<Array<GameCollectionModel>>;
+    private readonly gameCollectionsPersistenceAdapter: GameCollectionPersistencePort;
+    private readonly gameCollections: WritableSignal<Array<GameCollectionModel>>;
 
-    constructor(gameCollectionsUseCase: GameCollectionUseCase) {
-        this.gameCollectionsUseCase = gameCollectionsUseCase;
-        this.gameCollectionsSubject = new BehaviorSubject<Array<GameCollectionModel>>([]);
-        this.gameCollections = this.gameCollectionsSubject.asObservable();
+    constructor(
+        @Inject(GAME_COLLECTION_PERSISTENCE_PORT_TOKEN)
+        gameCollectionPersistenceAdapter: GameCollectionPersistencePort
+    ) {
+        this.gameCollectionsPersistenceAdapter = gameCollectionPersistenceAdapter;
+        this.gameCollections = signal(new Array<GameCollectionModel>());
         this.update();
     }
 
     public update(): void {
-        this.gameCollectionsUseCase.getAllGameCollections().then((gameCollections) => {
-            this.gameCollectionsSubject.next(gameCollections);
+        this.gameCollectionsPersistenceAdapter.getAllGameCollections().then((gameCollections) => {
+            this.gameCollections.update(() => gameCollections);
         });
     }
 
-    public getGameCollections(): Observable<Array<GameCollectionModel>> {
+    public getGameCollections(): WritableSignal<Array<GameCollectionModel>> {
         return this.gameCollections;
     }
 }

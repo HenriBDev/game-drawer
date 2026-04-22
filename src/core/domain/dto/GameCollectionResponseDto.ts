@@ -1,4 +1,4 @@
-export class GameCollectionEntity{
+export class GameCollectionResponseDto{
 
     name: string = '';
 

@@ -3,6 +3,6 @@ import { GameCollectionEntity } from "#core/domain/entity/GameCollectionEntity.j
 export class GameCollectionPersistenceIOAdapter {
 
     getAllGameCollections(): Array<GameCollectionEntity> {
-        return [];
+        return [new GameCollectionEntity("collection1"), new GameCollectionEntity("collection2")];
     }
 }
