@@ -11,11 +11,10 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
-    "baseUrl": "../",
     "paths": {
-      "@ui/*": ["./ui/*"]
+      "@ui/*": ["../ui/*"]
     },
 
     "esModuleInterop": true,

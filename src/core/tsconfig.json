@@ -4,7 +4,6 @@
     "target": "esnext",
     "module": "nodenext",
     "outDir": "../../dist",
-    "baseUrl": "./",
     "rootDir": "../",
     "paths": {
       "#core/*": ["./*"]
