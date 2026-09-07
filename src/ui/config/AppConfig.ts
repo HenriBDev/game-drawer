@@ -1,8 +1,9 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, inject, provideAppInitializer, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { IocConfig } from '@ui/config/IocConfig';
 import { RouterConfig } from '@ui/config/RouterConfig';
+import { CacheConfig } from '@ui/config/CacheConfig';
 
 export class AppConfig{
 
@@ -22,8 +23,15 @@ export class AppConfig{
 			providers: [
 				provideZoneChangeDetection({ eventCoalescing: true }), 
 				provideRouter(this.routeConfig.getRoutes()),
-				...this.iocConfig.getProviders()
+				...this.iocConfig.getProviders(),
+				provideAppInitializer(async () => await this.configureAppInitialization())
 			]
 		};
+	}
+
+	private async configureAppInitialization(): Promise<void> {
+		
+		const cacheConfig = inject(CacheConfig);
+		await cacheConfig.loadInitialCache();
 	}
 }

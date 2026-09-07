@@ -1,4 +1,4 @@
-import { GameCollectionPersistencePort } from "@ui/adapter/output/persistence/GameCollectionPersistencePort";
+import { GameCollectionPersistencePort } from "@ui/adapter/output/port/GameCollectionPersistencePort";
 import { GameCollectionModel } from "@ui/domain/model/GameCollectionModel";
 
 export class GameCollectionPersistenceElectronAdapter implements GameCollectionPersistencePort {

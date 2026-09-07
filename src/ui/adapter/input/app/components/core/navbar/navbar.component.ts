@@ -1,9 +1,8 @@
-import { Component, computed, Signal, signal, WritableSignal } from '@angular/core';
+import { Component, computed, Inject, OnInit, Signal } from '@angular/core';
 
 import { CarouselComponent } from '@ui/adapter/input/app/components/shared/carousel/carousel.component';
 import { FloatingActionButtonComponent } from '@ui/adapter/input/app/components/shared/floating-action-button/floating-action-button.component';
-import { GameCollectionModel } from '@ui/domain/model/GameCollectionModel';
-import { GameCollectionsStore } from '@ui/domain/store/GameCollectionsStore';
+import { GameCollectionCachePort, GAME_COLLECTION_CACHE_PORT_TOKEN } from '@ui/adapter/output/port/GameCollectionCachePort';
 
 @Component({
 	selector: '[app-navbar]',
@@ -11,18 +10,22 @@ import { GameCollectionsStore } from '@ui/domain/store/GameCollectionsStore';
 	templateUrl: './navbar.component.html',
 	styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
-	private readonly gameCollectionsStore: GameCollectionsStore;
-	private readonly gameCollections: WritableSignal<Array<GameCollectionModel>>;
-	protected readonly gameCollectionsNames: Signal<Array<string>> = computed(this.updateGameCollectionNames);
+	private readonly gameCollectionsCacheAdapter: GameCollectionCachePort;
+	protected readonly gameCollectionsNames: Signal<Array<string> | undefined>;
 
-	constructor(gameCollectionsStore: GameCollectionsStore) {
-		this.gameCollectionsStore = gameCollectionsStore;
-		this.gameCollections = this.gameCollectionsStore.getGameCollections();
+	constructor(
+		@Inject(GAME_COLLECTION_CACHE_PORT_TOKEN)
+		gameCollectionsCacheAdapter: GameCollectionCachePort
+	) {
+		this.gameCollectionsCacheAdapter = gameCollectionsCacheAdapter;
+		this.gameCollectionsNames = computed(() => this.gameCollectionsCacheAdapter.getGameCollections()
+			?.map((gameCollection) => gameCollection.name)
+		);
 	}
-
-	updateGameCollectionNames(): Array<string> {
-		return this.gameCollections().map((gameCollection) => gameCollection.name);
+	
+	ngOnInit(): void {
+		console.log('NavbarComponent initialized');
 	}
 }
