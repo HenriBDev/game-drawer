@@ -28,4 +28,14 @@ export class NavbarComponent implements OnInit {
 	ngOnInit(): void {
 		console.log('NavbarComponent initialized');
 	}
+
+	handleCarouselSelection = (item: string | undefined) => {
+
+		const selectedGameCollection = this.gameCollectionsCacheAdapter.getGameCollections()
+			?.find((gameCollection) => gameCollection.name === item);
+
+		this.gameCollectionsCacheAdapter.setSelectedGameCollection(selectedGameCollection);
+
+		console.log("Selected game collection: " + selectedGameCollection?.name);
+	}
 }

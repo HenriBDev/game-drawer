@@ -11,9 +11,9 @@ import { CarouselButtonComponent } from "@ui/adapter/input/app/components/shared
 export class CarouselComponent implements OnInit {
 
 	items: InputSignal<Array<string> | undefined> = input.required();
+	selectionOnClickHandler: InputSignal<(value: string | undefined) => void> = input.required();
 
 	ngOnInit(): void {
 		console.log(this.items());
 	}
-
 }

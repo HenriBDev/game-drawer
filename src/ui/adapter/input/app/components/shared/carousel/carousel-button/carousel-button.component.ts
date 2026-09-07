@@ -8,6 +8,7 @@ import { Component, input, InputSignal } from '@angular/core';
 })
 export class CarouselButtonComponent {
 
-	item: InputSignal<string> = input.required();
+	item: InputSignal<string | undefined> = input.required();
+	onClickHandler: InputSignal<(value: string | undefined) => void> = input.required();
 
 }
