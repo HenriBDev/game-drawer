@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { HeaderComponent } from '@ui/adapter/input/app/components/core/header/header.component';
-import { MainComponent } from "@ui/adapter/input/app/components/core/main/main.component";
-
 @Component({
 	selector: '[app-root]',
-	imports: [RouterOutlet, HeaderComponent, MainComponent],
+	imports: [RouterOutlet],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.scss'
 })

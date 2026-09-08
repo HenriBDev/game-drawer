@@ -7,8 +7,8 @@ import { GameCollectionCachePort } from "@ui/adapter/output/port/GameCollectionC
 export class GameCollectionMemoryCacheAdapter implements GameCollectionCachePort {
 
     private readonly gameCollections
-        : WritableSignal<Array<GameCollectionModel> | undefined> 
-        = signal(undefined);
+        : WritableSignal<Array<GameCollectionModel>> 
+        = signal([]);
 
     private readonly selectedGameCollection
         : WritableSignal<GameCollectionModel | undefined> 
@@ -22,7 +22,7 @@ export class GameCollectionMemoryCacheAdapter implements GameCollectionCachePort
         : Signal<GameCollectionModel | undefined> 
         = this.selectedGameCollection.asReadonly();
 
-    public setGameCollections(gameCollections: Array<GameCollectionModel> | undefined): void {
+    public setGameCollections(gameCollections: Array<GameCollectionModel>): void {
         this.gameCollections.set(gameCollections);
     }
     public setSelectedGameCollection(gameCollection: GameCollectionModel | undefined): void {
