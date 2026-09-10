@@ -1,26 +1,20 @@
-import { Inject, Injectable } from "@angular/core";
-
+import { inject, Inject, Injectable } from "@angular/core";
+    
+import { Logger, LoggerService } from "@ui/application/service/log/LoggerService";
 import { GAME_COLLECTION_CACHE_PORT_TOKEN, GameCollectionCachePort } from "@ui/adapter/output/port/GameCollectionCachePort";
-import { LoggerService } from "@ui/application/service/LoggerService";
 import { GameCollectionService } from "@ui/domain/service/GameCollectionService.js";
 
 @Injectable({ providedIn: 'root' })
 export class CacheConfig {
 
-    private readonly gameCollectionService: GameCollectionService
+    private readonly gameCollectionService: GameCollectionService = inject(GameCollectionService);
     private readonly gameCollectionCacheAdapter: GameCollectionCachePort;
-    private readonly logger: LoggerService;
+    private readonly logger: Logger = inject(LoggerService).createLogger(this);
 
     constructor(
-        gameCollectionService: GameCollectionService,
-        logger: LoggerService,
-
         @Inject(GAME_COLLECTION_CACHE_PORT_TOKEN)
         gameCollectionCacheAdapter: GameCollectionCachePort
     ) {
-
-        this.gameCollectionService = gameCollectionService;
-        this.logger = logger;
         this.gameCollectionCacheAdapter = gameCollectionCacheAdapter;
     }
 
